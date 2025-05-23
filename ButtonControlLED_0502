@@ -1,0 +1,25 @@
+int led_pin = 13;
+int button_pin = 12;
+int button_state = 0;  //紀錄按鈕是否被按下( 1為HIGH、 0為LOW )
+
+void setup() {
+
+  pinMode(led_pin, OUTPUT);             //13號接腳為輸出
+  pinMode(button_pin, INPUT_PULLUP);    //12號接腳為輸入，且接上Arduino內部的電阻(不用再額外接電阻)
+}
+
+void loop() {
+
+  button_state = digitalRead(button_pin);  //讀取12號接腳的輸入狀況到 button_state
+
+  if(button_state == LOW)    //當按鈕被按下
+  {
+    digitalWrite(led_pin, HIGH);
+  }
+  else    //當按鈕沒被按下   
+  {
+    digitalWrite(led_pin, LOW);
+  }
+
+}
+
