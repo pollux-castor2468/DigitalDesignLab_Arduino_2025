@@ -1,0 +1,28 @@
+int led_pin = 13;
+int button_pin = 12;
+int button_state = 0;
+
+void setup() {
+
+  pinMode(led_pin, OUTPUT);
+  pinMode(button_pin, INPUT_PULLUP);
+  Serial.begin(9600);   //記得電腦也要設定為9600才會同步
+}
+
+void loop() {
+
+   button_state = digitalRead(button_pin);  //讀取12號接腳的輸入狀況到 button_state
+
+  if(button_state == LOW)    //當按鈕被按下
+  {
+    digitalWrite(led_pin, HIGH);
+  }
+  else    //當按鈕沒被按下   
+  {
+    digitalWrite(led_pin, LOW);
+  }
+
+  Serial.println(1 - button_state);  //回傳按鈕按下的情況
+  delay(1);   //回傳後要等一下，以免還沒輸出就又要傳下一個了
+  
+}
