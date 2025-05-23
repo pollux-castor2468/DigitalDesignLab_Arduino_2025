@@ -1,0 +1,17 @@
+int ledpin = 12;  //設變數ledpin為12號接腳
+
+void setup() {     //只執行一次，可以用來設定接腳輸出/輸入狀態
+  pinMode(LED_BUILTIN, OUTPUT);  //設定13號接腳為輸出
+  pinMode(ledpin, OUTPUT);       //設定12號接腳為輸出
+}
+
+
+void loop() {      //重複執行
+  digitalWrite(LED_BUILTIN, HIGH);  //設定13號接腳輸出為 1
+  digitalWrite(ledpin, LOW);        //設定12號接腳為輸出 0 
+  delay(1000);                      //等待1秒
+
+  digitalWrite(LED_BUILTIN, LOW);   //設定13號接腳輸出為 0 
+  digitalWrite(ledpin, HIGHT);      //設定12號接腳輸出為 1 
+  delay(1000);                      //等待1秒
+}
